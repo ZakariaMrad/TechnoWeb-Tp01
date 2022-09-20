@@ -8,8 +8,7 @@ import { TableauCitation } from '../Classes/TableauCitation';
   styleUrls: ['./affichage-citation.component.css']
 })
 export class AffichageCitationComponent implements OnInit {
-  @Input() tableauCitationCourante:TableauCitation=new TableauCitation(new Citation(""));
-  @Input() Vide:boolean= true;
+  @Input() tableauCitationCourante:Citation[]=new Array(); //Recoit le tableau à afficher
   constructor() { 
   }
 

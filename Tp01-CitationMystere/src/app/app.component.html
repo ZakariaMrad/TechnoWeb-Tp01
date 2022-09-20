@@ -1,9 +1,27 @@
 <nav class="p-2 border-bottom border-white bg-dark container">
   <div class="row">
-      <h1 class="d-flex justify-content-center text-decoration-none text-center text-white">Citation Mystère</h1>
-      <p class="d-flex justify-content-center text-decoration-none text-center text-white">par Zakaria Mrad</p>
+    <h1 class="d-flex justify-content-center text-decoration-none text-center text-white">Citation Mystère</h1>
+    <p class="d-flex justify-content-center text-decoration-none text-center text-white">par Zakaria Mrad</p>
   </div>
 </nav>
-<app-choix-citation *ngIf="Montrercitation" (CitationCourante)="changerCitation($event)"></app-choix-citation>
-<app-affichage-citation *ngIf="!Montrercitation" [Vide]="false" [tableauCitationCourante]="TableauCitation"></app-affichage-citation>
-<app-affichage-citation *ngIf="!Montrercitation" [Vide]="true" [tableauCitationCourante]="TableauCitation"></app-affichage-citation>
+
+<!-- Afficher s'il faut entrer une citation -->
+<app-choix-citation *ngIf="MontrerCitation" (CitationCourante)="changerCitation($event)"></app-choix-citation>
+
+<!-- Afficher s'il faut afficher une citation -->
+<div *ngIf="!MontrerCitation">
+  <app-affichage-citation  [tableauCitationCourante]="TableauCitation.TableauHorizontalRand">
+  </app-affichage-citation>
+
+  <!-- Afficher s'il faut montrer le tableau vide -->
+  <app-affichage-citation *ngIf="!MontrerReponse" [tableauCitationCourante]="TableauCitation.TableauHorizontalVide">
+  </app-affichage-citation>
+
+  <!-- Afficher s'il faut montrer le tableau avec la réponse -->
+  <app-affichage-citation *ngIf="MontrerReponse" [tableauCitationCourante]="TableauCitation.TableauHorizontal">
+  </app-affichage-citation>
+  <div class="container border-top border-white bg-dark">
+    <button (click)="afficherCitation()" class="btn btn-danger p-2 m-3">Montrer la citation</button>
+    <button (click)="recommencer()" class="btn btn-success p-2 m-3">Recommencer</button>
+  </div>
+</div>

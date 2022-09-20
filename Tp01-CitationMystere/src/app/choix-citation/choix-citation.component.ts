@@ -17,7 +17,7 @@ export class ChoixCitationComponent implements OnInit {
   ngOnInit(): void {
   }
   onEnter() {
-    if (this.NouvelleCitation.length < 1) {
+    if (this.NouvelleCitation.length < 35) {
       this.messageInput = "Votre citation doit contenir au moins 35 caractères";
       this.NouvelleCitation = "";
     } else if (this.NouvelleCitation.length > 100) {
@@ -28,7 +28,6 @@ export class ChoixCitationComponent implements OnInit {
       this.NouvelleCitation = "";
       this.messageInput = "Veuillez entrer votre citation!";
       this.CitationCourante.emit(this.cita);
-      //this.cita.AfficherCons();
     }
   }
 }

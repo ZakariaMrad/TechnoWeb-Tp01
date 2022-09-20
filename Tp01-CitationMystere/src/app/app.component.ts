@@ -9,13 +9,20 @@ import { TableauCitation } from './Classes/TableauCitation';
 })
 export class AppComponent {
   title = 'Tp01-CitationMystere';
-  //citationCourante:Citation=new Citation("");
   TableauCitation:TableauCitation= new TableauCitation(new Citation(""));
-  Montrercitation:boolean=true;
+  MontrerCitation:boolean=true;
+  MontrerReponse:boolean=false;
 
   changerCitation(cit:Citation){
     this.TableauCitation=new TableauCitation(cit);
-    this.Montrercitation=false
-    //cit.AfficherCons();
+    this.MontrerCitation=false
+  }
+  recommencer(){
+    this.changerCitation(new Citation(""));
+    this.MontrerCitation=true;
+    this.MontrerReponse=false;
+  }
+  afficherCitation(){
+    this.MontrerReponse=true;
   }
 }
