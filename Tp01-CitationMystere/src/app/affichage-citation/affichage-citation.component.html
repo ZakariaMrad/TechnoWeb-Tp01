@@ -1,0 +1,15 @@
+<div class="container p-3 bg-primary">
+    <!-- <ul *ngFor="let tab of tableauCitationCourante.Tableau" style="width: 20;" class="float-left">
+        <li *ngFor="let car of tab.citation">{{car.caractere}}</li>
+    </ul> -->
+    <table *ngIf="!Vide" class="m-4">
+        <tr *ngFor="let tab of tableauCitationCourante.TableauHorinzontalRand">
+            <td *ngFor="let car of tab.citation" class="case {{car.style}}">{{car.caractere}}</td>
+        </tr>
+    </table>
+    <table *ngIf="Vide" class="m-4">
+        <tr *ngFor="let tab2 of tableauCitationCourante.TableauHorinzontal">
+            <td *ngFor="let car2 of tab2.citation" class="vide {{car2.style}}"> </td>
+        </tr>
+    </table>
+</div>
